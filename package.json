@@ -1,6 +1,6 @@
 {
   "name": "@mergify/icons",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Mergify's product icons as raw SVG files. Ships in `currentColor` so consumers control the color via CSS. Shared across the dashboard, docs, and mergify.com.",
   "license": "Apache-2.0",
   "repository": {
