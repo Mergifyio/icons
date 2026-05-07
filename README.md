@@ -65,8 +65,8 @@ import MergeQueue from '@mergify/icons/merge-queue.svg';
    (e.g. `runner.svg`).
 2. Add an entry to the `exports` field in `package.json`.
 3. Document the icon in this README's table.
-4. Add a changeset (`pnpm changeset`) and open a PR — release happens
-   automatically on merge.
+4. Open a PR. After merge, a maintainer cuts a GitHub Release with the
+   next semver tag — that publishes the new version to npm.
 
 ## License
 

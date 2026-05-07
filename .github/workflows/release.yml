@@ -1,47 +1,30 @@
-name: Release
+name: Publish to npm
 
 on:
-  push:
-    branches:
-      - main
-
-concurrency:
-  group: release
-  cancel-in-progress: false
-
-permissions:
-  contents: write
-  pull-requests: write
-  id-token: write
+  release:
+    types:
+      - published
 
 jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+  publish:
+    runs-on: ubuntu-24.04
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
-          fetch-depth: 0
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
+          ref: ${{ github.event.release.tag_name }}
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
-          cache: pnpm
+          node-version-file: .node-version
           registry-url: https://registry.npmjs.org
-
-      - run: pnpm install --frozen-lockfile
-
-      - name: Create release pull request or publish
-        uses: changesets/action@v1
-        with:
-          publish: pnpm run release
-          version: pnpm exec changeset version
-          commit: 'chore: release'
-          title: 'chore: release'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          cache: pnpm
+      - name: Set package version from release tag
+        run: |
+          VERSION="${{ github.event.release.tag_name }}"
+          VERSION="${VERSION#v}"
+          pnpm version "$VERSION" --no-git-tag-version --allow-same-version
+      - run: pnpm publish --provenance --access public --no-git-checks

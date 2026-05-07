@@ -98,17 +98,7 @@ Add a row to the table under `## Icons`, keeping it alphabetical-ish. Format:
 
 If no brand color was provided, use `—` or omit the row's color cell value.
 
-### 6. Add a changeset
-
-```sh
-pnpm changeset
-```
-
-Pick `patch` for individual icons added to an existing release, or `minor`
-if it's a notable batch / new product introduction. Briefly describe the
-icon: what product / context it represents.
-
-### 7. Verify locally
+### 6. Verify locally
 
 ```sh
 # All exports resolve to existing files
@@ -124,18 +114,20 @@ for (const [k, v] of Object.entries(pkg.exports)) {
 
 Expected: no output. If anything prints, fix the path.
 
-### 8. Commit and open a PR
+### 7. Commit and open a PR
 
 ```sh
 git checkout -b add-icon-<name>
-git add icons/<name>.svg package.json README.md .changeset/
+git add icons/<name>.svg package.json README.md
 git commit -m "feat: add <name> icon"
 git push -u origin add-icon-<name>
 gh pr create --title "feat: add <name> icon" --body "..."
 ```
 
-After review and merge, the GitHub Action picks up the changeset and
-publishes a new version automatically.
+After review and merge, ask the maintainer to **create a GitHub Release**
+with the next semver tag (e.g. `0.2.0`). The release event triggers
+`.github/workflows/release.yml`, which publishes the new version to npm via
+OIDC Trusted Publishing — no token needed.
 
 ## Common pitfalls
 
@@ -148,5 +140,6 @@ publishes a new version automatically.
 - **`width`/`height` baked in.** SVGs from Figma include `width="40"
   height="40"`. Leave them — consumers can override via attributes
   (`<svg width={...}>`) or the SVG renders at its native size by default.
-- **Not adding a changeset.** Without it, the GH Action won't trigger a
-  release. New icons sit in `main` until a changeset lands.
+- **Forgetting the GitHub Release.** Merging the PR adds the icon to
+  `main` but doesn't publish anything. The maintainer needs to cut a
+  GitHub Release with a semver tag for the new icon to land on npm.

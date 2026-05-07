@@ -9,9 +9,10 @@ the dashboard, docs, and marketing site.
 - `package.json` — the `exports` map aliases each icon as
   `@mergify/icons/<name>.svg`, hiding the `icons/` segment from consumers.
 - `README.md` — public usage docs and the icon table.
-- `.changeset/` — pending release entries (Changesets).
-- `.github/workflows/release.yml` — auto-publishes to npm on merge to `main`
-  when a changeset is present.
+- `.github/workflows/release.yml` — publishes to npm via OIDC Trusted
+  Publishing when a GitHub Release is published.
+- `.mergify.yml` — merge protections (2 approvals required, auto-request
+  reviews from `@devs`, squash-merge via the default queue).
 
 ## Conventions
 
@@ -25,9 +26,25 @@ the dashboard, docs, and marketing site.
   plain `<img>`, etc.).
 - **Commits**: [Conventional Commits](https://www.conventionalcommits.org/)
   (`feat: add X icon`, `fix: viewBox on Y`, etc.).
-- **Versioning**: never bump the version manually. Add a changeset
-  (`pnpm changeset`); the GitHub Action handles publishing the next time a
-  changeset lands on `main`.
+
+## Releasing
+
+The npm publish is triggered by a **GitHub Release**, not by merging to
+`main`. There's no `NPM_TOKEN`; npmjs.com authenticates the GitHub Action
+via OIDC Trusted Publishing (configured once on the package settings page).
+
+Steps:
+
+1. Make sure `main` is in the state you want to ship.
+2. Create a GitHub Release with a semver tag — e.g. `0.1.0`, `0.2.0`,
+   `1.0.0`. The `v` prefix is optional (the workflow strips it).
+3. The release event triggers `.github/workflows/release.yml`, which sets
+   the version in `package.json` from the tag, then runs `pnpm publish
+   --provenance --access public`.
+
+Use the GitHub Release notes to describe what changed — they're the
+public changelog. Bumping `package.json#version` manually before the
+release is unnecessary; the workflow does it from the tag.
 
 ## Adding a new icon
 
@@ -40,5 +57,5 @@ Manual checklist if working without the skill:
 1. Drop the SVG in `icons/<name>.svg` and normalize colors to `currentColor`.
 2. Add an entry under `exports` in `package.json` (alphabetical order).
 3. Add a row to the README icon table (suggested brand color + viewBox).
-4. Run `pnpm changeset` and describe the icon.
-5. Commit, push, open a PR.
+4. Commit, push, open a PR.
+5. After merge, create a GitHub Release with the new version tag to publish.
