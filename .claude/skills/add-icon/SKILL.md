@@ -1,9 +1,9 @@
 ---
 name: add-icon
-description: Add a new icon to the @mergify/icons package. Use when the user asks to "add an icon", "ajouter une icône", "new icon to the package", or pastes an SVG / Figma node id with intent to add it. Walks through SVG normalization (currentColor), the package.json exports map, README documentation, and the Changesets release entry.
+description: Add a new icon to the @mergifyio/icons package. Use when the user asks to "add an icon", "ajouter une icône", "new icon to the package", or pastes an SVG / Figma node id with intent to add it. Walks through SVG normalization (currentColor), the package.json exports map, and README documentation. The actual npm publish happens later through a GitHub Release.
 ---
 
-# Adding an icon to @mergify/icons
+# Adding an icon to @mergifyio/icons
 
 This package ships raw SVG files used across `dashboard`, `docs`, and
 `mergify.com`. Each icon lives under `icons/`, is exposed via
@@ -85,7 +85,7 @@ Add a line under `exports` in `package.json`, keeping the alphabetical order:
 "./<name>.svg": "./icons/<name>.svg",
 ```
 
-This lets consumers import as `@mergify/icons/<name>.svg` (without the
+This lets consumers import as `@mergifyio/icons/<name>.svg` (without the
 `icons/` segment).
 
 ### 5. Update the README table

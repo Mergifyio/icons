@@ -1,4 +1,4 @@
-# @mergify/icons
+# @mergifyio/icons
 
 Mergify's product icons as raw SVG files. Each icon ships in `currentColor`
 so the consumer controls the color through CSS — see the suggested brand
@@ -17,7 +17,7 @@ color per product below.
 ## Install
 
 ```sh
-pnpm add @mergify/icons
+pnpm add @mergifyio/icons
 ```
 
 ## Usage
@@ -29,24 +29,24 @@ bundler's SVG loader.
 
 ```ts
 // As a React component (with vite-plugin-svgr or similar):
-import MergeQueueIcon from '@mergify/icons/merge-queue.svg?react';
+import MergeQueueIcon from '@mergifyio/icons/merge-queue.svg?react';
 
 <MergeQueueIcon width={40} height={40} />
 
 // As a URL:
-import url from '@mergify/icons/merge-queue.svg';
+import url from '@mergifyio/icons/merge-queue.svg';
 
 <img src={url} alt="Merge Queue" />
 
 // As inline string (?raw):
-import svg from '@mergify/icons/merge-queue.svg?raw';
+import svg from '@mergifyio/icons/merge-queue.svg?raw';
 ```
 
 ### Astro (docs / mergify.com)
 
 ```astro
 ---
-import MergeQueue from '@mergify/icons/merge-queue.svg';
+import MergeQueue from '@mergifyio/icons/merge-queue.svg';
 ---
 <MergeQueue width={40} height={40} />
 ```
@@ -56,7 +56,7 @@ import MergeQueue from '@mergify/icons/merge-queue.svg';
 ### Plain HTML / Markdown
 
 ```html
-<img src="/node_modules/@mergify/icons/merge-queue.svg" alt="Merge Queue" />
+<img src="/node_modules/@mergifyio/icons/merge-queue.svg" alt="Merge Queue" />
 ```
 
 ## Adding new icons

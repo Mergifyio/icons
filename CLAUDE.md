@@ -1,4 +1,4 @@
-# @mergify/icons
+# @mergifyio/icons
 
 This repo publishes Mergify's product icons as raw SVG files for use across
 the dashboard, docs, and marketing site.
@@ -7,7 +7,7 @@ the dashboard, docs, and marketing site.
 
 - `icons/*.svg` — the source SVGs, kebab-case filenames.
 - `package.json` — the `exports` map aliases each icon as
-  `@mergify/icons/<name>.svg`, hiding the `icons/` segment from consumers.
+  `@mergifyio/icons/<name>.svg`, hiding the `icons/` segment from consumers.
 - `README.md` — public usage docs and the icon table.
 - `.github/workflows/release.yml` — publishes to npm via OIDC Trusted
   Publishing when a GitHub Release is published.
