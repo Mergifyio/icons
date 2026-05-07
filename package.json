@@ -1,0 +1,43 @@
+{
+  "name": "@mergify/icons",
+  "version": "0.0.0",
+  "description": "Mergify's product icons as raw SVG files. Ships in `currentColor` so consumers control the color via CSS. Shared across the dashboard, docs, and mergify.com.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mergifyio/icons.git"
+  },
+  "type": "module",
+  "exports": {
+    "./ci-insights.svg": "./icons/ci-insights.svg",
+    "./merge-protections.svg": "./icons/merge-protections.svg",
+    "./merge-queue.svg": "./icons/merge-queue.svg",
+    "./stacks.svg": "./icons/stacks.svg",
+    "./test-insights.svg": "./icons/test-insights.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "icons",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "mergify",
+    "design-system"
+  ]
+}
