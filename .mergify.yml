@@ -1,0 +1,39 @@
+extends: .github
+
+queue_rules:
+  - name: default
+    queue_conditions:
+      - base = main
+    commit_message_template: |
+      {{ title }} (#{{ number }})
+
+      {{ body }}
+    merge_method: squash
+
+pull_request_rules:
+  - name: request review
+    conditions:
+      - author != dependabot[bot]
+      - author != github-actions[bot]
+      - -closed
+      - "#approved-reviews-by=0"
+      - "#changes-requested-reviews-by=0"
+      - review-requested != @devs
+    actions:
+      request_reviews:
+        teams:
+          - devs
+
+merge_protections:
+  - name: Approval
+    if:
+      - author != dependabot[bot]
+    success_conditions:
+      - "#approved-reviews-by >= 2"
+
+merge_queue:
+  max_parallel_checks: 3
+
+merge_protections_settings:
+  reporting_method: deployments
+  auto_merge: true
