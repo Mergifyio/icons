@@ -13,6 +13,9 @@ color per product below.
 | `ci-insights.svg` | `#5C68F0` (indigo) | `0 0 40 40` |
 | `test-insights.svg` | `#9C43E5` (purple) | `0 0 40 40` |
 | `stacks.svg` | `#E61E71` (rose) | `0 0 32 32` |
+| `quarantined-healthy.svg` | `#17B26A` (success green) | `0 0 24 24` |
+| `quarantined-flaky.svg` | `#F79009` (warning orange) | `0 0 24 24` |
+| `quarantined-broken.svg` | `#F04438` (error red) | `0 0 24 24` |
 
 ## Install
 
