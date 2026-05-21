@@ -12,6 +12,9 @@
     "./ci-insights.svg": "./icons/ci-insights.svg",
     "./merge-protections.svg": "./icons/merge-protections.svg",
     "./merge-queue.svg": "./icons/merge-queue.svg",
+    "./quarantined-broken.svg": "./icons/quarantined-broken.svg",
+    "./quarantined-flaky.svg": "./icons/quarantined-flaky.svg",
+    "./quarantined-healthy.svg": "./icons/quarantined-healthy.svg",
     "./stacks.svg": "./icons/stacks.svg",
     "./test-insights.svg": "./icons/test-insights.svg",
     "./package.json": "./package.json"
