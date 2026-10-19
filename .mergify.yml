@@ -28,7 +28,7 @@ merge_protections:
     if:
       - author != dependabot[bot]
     success_conditions:
-      - "#approved-reviews-by >= 2"
+      - "#approved-reviews-by >= 1"
 
 merge_queue:
   max_parallel_checks: 3
