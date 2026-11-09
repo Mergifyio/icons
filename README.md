@@ -16,6 +16,12 @@ color per product below.
 | `quarantined-healthy.svg` | `#17B26A` (success green) | `0 0 24 24` |
 | `quarantined-flaky.svg` | `#F79009` (warning orange) | `0 0 24 24` |
 | `quarantined-broken.svg` | `#F04438` (error red) | `0 0 24 24` |
+| `scope.svg` | — | `0 0 24 24` |
+| `all-scopes.svg` | — | `0 0 24 24` |
+
+`scope.svg` marks one scope: four tiles in a square, one filled and three
+outlined. `all-scopes.svg` fills all four tiles, for something that
+touches every scope.
 
 ## Install
 
