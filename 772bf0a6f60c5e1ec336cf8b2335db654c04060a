@@ -1,1 +1,6 @@
-Redrew both glyphs from scratch as four rounded tiles; licence notice removed, license back to Apache-2.0.
+Revision history for #14:
+
+rev 2 (content) 2026-11-09 15:30 UTC — Redrew both glyphs from scratch as four rounded tiles; licence notice removed, license back to Apache-2.0.
+rev 1 (initial) 2026-11-09 15:30 UTC
+
+<!-- mergify-revision-data: {"schema_version":1,"pull_number":14,"entries":[{"number":1,"change_type":"initial","old_sha":null,"new_sha":"1545edde91c491d0a3fa35169ce2fefbc898bc8a","timestamp_iso":"2026-11-09T15:30:46Z","reason":"","replay_sha":null,"compare_url":null},{"number":2,"change_type":"content","old_sha":"1545edde91c491d0a3fa35169ce2fefbc898bc8a","new_sha":"772bf0a6f60c5e1ec336cf8b2335db654c04060a","timestamp_iso":"2026-11-09T15:30:46Z","reason":"Redrew both glyphs from scratch as four rounded tiles; licence notice removed, license back to Apache-2.0.","replay_sha":null,"compare_url":"https://github.com/Mergifyio/icons/compare/1545edde91c491d0a3fa35169ce2fefbc898bc8a...772bf0a6f60c5e1ec336cf8b2335db654c04060a"}]} -->
