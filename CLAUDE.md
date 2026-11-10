@@ -46,6 +46,14 @@ Use the GitHub Release notes to describe what changed — they're the
 public changelog. Bumping `package.json#version` manually before the
 release is unnecessary; the workflow does it from the tag.
 
+If a release's publish run fails, re-running it uses the workflow as it
+was at the tag, so a fix merged since then is not picked up. Publish the
+existing tag with the workflow from `main` instead:
+
+```sh
+gh workflow run release.yml --repo Mergifyio/icons --ref main -f tag=1.0.0
+```
+
 All actions must be pinned to a full commit SHA (a repository setting);
 a workflow using `@v6`-style refs is refused before any step runs.
 
