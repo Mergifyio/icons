@@ -46,6 +46,9 @@ Use the GitHub Release notes to describe what changed — they're the
 public changelog. Bumping `package.json#version` manually before the
 release is unnecessary; the workflow does it from the tag.
 
+All actions must be pinned to a full commit SHA (a repository setting);
+a workflow using `@v6`-style refs is refused before any step runs.
+
 ## Adding a new icon
 
 The repository ships a Claude Code skill that walks through it end-to-end:
