@@ -4,6 +4,12 @@ on:
   release:
     types:
       - published
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to publish (e.g. 1.0.0)
+        required: true
+        type: string
 
 jobs:
   publish:
@@ -12,10 +18,12 @@ jobs:
     permissions:
       contents: read
       id-token: write
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
-          ref: ${{ github.event.release.tag_name }}
+          ref: refs/tags/${{ env.TAG }}
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
@@ -23,7 +31,6 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: Set package version from release tag
         run: |
-          VERSION="${{ github.event.release.tag_name }}"
-          VERSION="${VERSION#v}"
+          VERSION="${TAG#v}"
           pnpm version "$VERSION" --no-git-tag-version --allow-same-version
       - run: pnpm publish --provenance --access public --no-git-checks
