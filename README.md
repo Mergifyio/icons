@@ -29,10 +29,10 @@ touches every scope.
 
 ### Status glyphs
 
-`split-x`, `split-check`, `split-dash` and `git-merge-x` fill gaps in
-[Lucide](https://lucide.dev), so they are drawn the way Lucide draws its
-icons: 24-unit grid, stroke width 2, round caps and joins, stroke in
-`currentColor`. They sit next to Lucide icons at any size.
+`split-x`, `split-check`, `split-dash` and `git-merge-x` are drawn in the
+style of [Lucide](https://lucide.dev) icons (24-unit grid, stroke width 2,
+round caps and joins, stroke in `currentColor`) so they sit next to them
+at any size.
 
 - `split-x`: the pull request a bisection found to be the cause of the failure.
 - `split-check`: a pull request the bisection cleared.
@@ -40,10 +40,6 @@ icons: 24-unit grid, stroke width 2, round caps and joins, stroke in
 - `git-merge-x`: a merge conflict. It has no suggested color: a conflict
   that delays a pull request and one that removes it do not call for the
   same one.
-
-The `split-*` icons are derived from Lucide's `split`, and `git-merge-x`
-from its `git-merge`, under the ISC License: see
-[`LICENSE-LUCIDE`](LICENSE-LUCIDE).
 
 ## Install
 
@@ -101,6 +97,4 @@ import MergeQueue from '@mergifyio/icons/merge-queue.svg';
 
 ## License
 
-Apache-2.0, except the parts of `split-x.svg`, `split-check.svg`,
-`split-dash.svg` and `git-merge-x.svg` taken from Lucide, which stay under
-the ISC License ([`LICENSE-LUCIDE`](LICENSE-LUCIDE)).
+Apache-2.0
