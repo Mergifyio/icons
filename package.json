@@ -2,7 +2,7 @@
   "name": "@mergifyio/icons",
   "version": "0.0.0",
   "description": "Mergify's product icons as raw SVG files. Ships in `currentColor` so consumers pick the color via CSS. Shared across the dashboard, docs, and mergify.com.",
-  "license": "Apache-2.0 AND ISC",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mergifyio/icons.git"
@@ -28,8 +28,7 @@
   "files": [
     "icons",
     "README.md",
-    "LICENSE",
-    "LICENSE-LUCIDE"
+    "LICENSE"
   ],
   "engines": {
     "node": ">=22.0.0"
