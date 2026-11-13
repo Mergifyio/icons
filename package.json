@@ -2,7 +2,7 @@
   "name": "@mergifyio/icons",
   "version": "0.0.0",
   "description": "Mergify's product icons as raw SVG files. Ships in `currentColor` so consumers pick the color via CSS. Shared across the dashboard, docs, and mergify.com.",
-  "license": "Apache-2.0",
+  "license": "Apache-2.0 AND ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mergifyio/icons.git"
@@ -11,12 +11,16 @@
   "exports": {
     "./all-scopes.svg": "./icons/all-scopes.svg",
     "./ci-insights.svg": "./icons/ci-insights.svg",
+    "./git-merge-x.svg": "./icons/git-merge-x.svg",
     "./merge-protections.svg": "./icons/merge-protections.svg",
     "./merge-queue.svg": "./icons/merge-queue.svg",
     "./quarantined-broken.svg": "./icons/quarantined-broken.svg",
     "./quarantined-flaky.svg": "./icons/quarantined-flaky.svg",
     "./quarantined-healthy.svg": "./icons/quarantined-healthy.svg",
     "./scope.svg": "./icons/scope.svg",
+    "./split-check.svg": "./icons/split-check.svg",
+    "./split-dash.svg": "./icons/split-dash.svg",
+    "./split-x.svg": "./icons/split-x.svg",
     "./stacks.svg": "./icons/stacks.svg",
     "./test-insights.svg": "./icons/test-insights.svg",
     "./package.json": "./package.json"
@@ -24,7 +28,8 @@
   "files": [
     "icons",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "LICENSE-LUCIDE"
   ],
   "engines": {
     "node": ">=22.0.0"
